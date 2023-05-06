@@ -1,0 +1,84 @@
+@import "../../css-config/mixins.scss";
+
+.heading{
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+
+.products-container{
+    margin: 50px 0;
+    display: flex;
+    flex-wrap: wrap;
+    @include md{
+        margin: 75px 0;
+    }
+    .section-heading{
+        margin-bottom: 20px;
+        font-size: 18px;
+        font-weight: 500;
+        text-transform: uppercase;
+        @include md{
+            margin-bottom: 75px;
+            font-size: 24px;
+        }
+        &:after{
+            content: "";
+            display: block;
+            margin-top: 5px;
+            width: 50px;
+            height: 3px;
+            background-color: #8e2de2;
+            @include md{
+                margin-top: 10px;
+            }
+        }
+    }
+    
+    .products{
+        display: flex;
+        flex-flow: wrap;
+        flex-direction: column;
+        width: 220px;
+        gap: 10px;
+        margin-left: 40px;
+        margin-right: 20px;
+        margin-bottom: 70px;
+        border-radius: 10px;
+        padding: 10px;
+        border: 1px solid black;
+        cursor: pointer;
+        .text{
+            background-color: white;
+            text-align: center;
+            width: 100%;
+            border-top: 1px solid gray;
+            background:rgba(0,0,0,0.05);
+        }
+        .text2{
+            text-align: center;
+            background:rgba(0,0,0,0.05);
+            margin-top: -20px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+
+        }
+        @include md{
+            gap: 20px;
+        }
+        
+        img{
+            height: 200px;
+            width: 200px;
+            width: 100%;
+            display: block;
+            transition: all ease 0.3s;
+            padding: 5px;
+        }
+        &:hover{
+            img{
+                transform: scale(1.15);
+            }
+        }
+    }
+}
