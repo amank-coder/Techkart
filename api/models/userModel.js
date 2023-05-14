@@ -1,27 +1,3 @@
-// const {Schema, mongoose} = require('mongoose')
-
-
-// const userSchema = new Schema({
-//   username: {
-//     type: String,
-//     required: true,
-//     unique: true,
-//   },
-//   email: {
-//     type: String,
-//     required: true,
-//     unique: true,
-//   },
-//   password: {
-//     type: String,
-//     required: true,
-//   },
-// },{
-//   timestamps:true
-// });
-
-// module.exports= mongoose.model("User", userSchema)
-
 const {Schema, mongoose} = require('mongoose')
 
 const userSchema = new Schema({
@@ -43,6 +19,11 @@ const userSchema = new Schema({
   phone:{
     type:String,
     required:false
+  },
+  isAdmin:{
+    type:Boolean,
+    required:true,
+    default:false
   }
 },
 {

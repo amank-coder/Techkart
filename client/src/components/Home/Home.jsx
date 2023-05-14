@@ -30,7 +30,7 @@ const Home = () => {
 
     
     return (
-        <div>
+        <div className="main">
             <Banner />
             <div className="main-content">
                 <div className="layout">

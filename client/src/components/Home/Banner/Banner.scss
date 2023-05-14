@@ -3,9 +3,14 @@
 .hero-banner{
     padding: 40px 0;
     position: relative;
-    background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+    background-image: url('https://www.moksha.in/wp-content/uploads/2021/02/Boat-Website-BannerDesktop1_200kb.jpg');
+    // background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4));
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size:cover;
     @include md{
-        height: calc(100vh - 80px);
+        height: 100vh;
+        width: calc(100vh + 621px);
     }
     .content{
         height: 100%;
@@ -44,6 +49,7 @@
             text-align: center;
             display: flex;
             flex-direction: column;
+            margin-top: 25px;
             align-items: center;
             @include md{
                 position: absolute;
@@ -61,6 +67,8 @@
                 line-height: 1;
                 margin-bottom: 5px;
                 text-transform: uppercase;
+                text-shadow: 4px 4px purple;
+
                 @include md{
                     font-size: 180px;
                 }

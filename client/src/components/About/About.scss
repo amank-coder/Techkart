@@ -1,0 +1,25 @@
+@import "../../css-config/mixins.scss";
+
+.wrap{
+
+        .content{
+            padding-bottom: 45px;
+       padding-top: 110px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-bottom: 100px;
+        }
+    h1{
+        &:after{
+            content: "";
+            display: block;
+            width: 17%;
+            margin-top: 20px;
+            height: 2px;
+            background-color: rgb(133, 50, 188);
+        }
+    }
+    p{
+        margin-top: 30px;
+    }
+}

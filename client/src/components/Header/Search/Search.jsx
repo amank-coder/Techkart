@@ -1,8 +1,10 @@
 import { MdClose } from "react-icons/md";
 import "./Search.scss";
 import { useNavigate } from "react-router-dom";
-import useFetch from "../../../hooks/useFetch"
 import { useState } from "react";
+import { useQuery } from "react-query";
+import newRequest from "../../../util/newRequest";
+
 
 const Search = ({setShowSearch}) => {
     const [query, setQuery]= useState("")
@@ -12,13 +14,21 @@ const Search = ({setShowSearch}) => {
         setQuery(e?.target?.value)
     }
 
-    let {data} = useFetch(`/api/products?populate=*&filters[title][$contains]=${query}`)
-    
-    if(!query.length){
-        data=null
-    }
+    const { isLoading, error, data } = useQuery({
+        queryKey:['repoData'],
+        queryFn: () =>
+        newRequest.get(`/products`).then((res)=>{
+          return res.data
+        }),
+      })
+      console.log(data)
 
-    return (
+      const filteredData = data?.filter((item) =>
+      item.title.toLowerCase().includes(query.toLowerCase())
+    );
+
+
+      return (
         <div className="search-modal">
             <div className="form-field">
                 <input type="text"
@@ -31,18 +41,19 @@ const Search = ({setShowSearch}) => {
             </div>
             <div className="search-result-content">
                 <div className="search-results">
-                    {data?.data?.map((item)=>(
-                        <div key={item.id} className="search-result-item" onClick={()=>{
-                            navigate('/product/'+item.id)
+                {filteredData?.length === 0 && <div>No results found.</div>}
+                    {filteredData && filteredData?.map((item)=>(
+                        <div key={item._id} className="search-result-item" onClick={()=>{
+                            navigate('/product/'+item._id)
                             setShowSearch(false)
                             }
                             }>
                         <div className="img-container">
-                            <img src={process.env.REACT_APP_DEV_URL+item.attributes.img.data[0].attributes.url} alt="" />
+                            <img src={item?.image} alt="" />
                         </div>
                         <div className="prod-details">
-                            <span className="name">{item.attributes.title} </span>
-                            <span className="desc">{item.attributes.desc} </span>
+                            <span className="name">{item?.title} </span>
+                            <span className="desc">{item?.desc} </span>
                         </div>
                     </div>))}          
                 </div>

@@ -1,8 +1,9 @@
 import {useNavigate} from "react-router-dom";
 import "./Category.scss";
 import { useQuery } from "react-query";
-import newRequest from "../../../util/newRequest";
 import { useLocation } from "react-router-dom";
+import { useRef, useContext } from "react";
+import { Context } from "../../../util/context";
 
 export const Category = ({categories}) => {
     const navigate = useNavigate()
@@ -16,10 +17,11 @@ export const Category = ({categories}) => {
     //   })
     //   console.log(data)
 
+    const {scrollToRef} = useContext(Context)
     return (
-        <div className="shop-by-category">
+        <div className="shop-by-category" ref={scrollToRef}>
         <h1>Categories</h1>
-            <div className="categories">
+            <div className="categories" >
                 
                         <div className="category" onClick={()=> navigate(`/category?cat=Headphone`)}>
                             <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/products/1_5.png?v=1655534211" alt=""/>
@@ -37,6 +39,10 @@ export const Category = ({categories}) => {
                         <div className="category" onClick={()=> navigate(`/category?cat=Earbuds`)}>
                             <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/products/616b4ead-bbd9-4a16-aeab-8d331a16f697_600x.png?v=1642405569" alt="" />
                             <div className="cat">Earbuds</div>
+                        </div>
+                        <div className="category" onClick={()=> navigate(`/category?cat=joystick`)}>
+                            <img src="https://www.pngall.com/wp-content/uploads/4/USB-Gamepad-PNG-Free-Image.png" alt="" />
+                            <div className="cat">Joystick</div>
                         </div>
    
             </div>

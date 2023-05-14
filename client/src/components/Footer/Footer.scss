@@ -11,7 +11,7 @@
         gap: 20px;
         @include md{
             justify-content: space-between;
-            padding: 50px 0;
+            padding: 50px 20px;
         }
         .col{
             max-width: 300px;
@@ -22,6 +22,12 @@
             .text{
                 color: rgba(0,0,0,0.5);
                 font-size: 14px;
+                
+            }
+            .text-t{
+                &:hover{
+                    color: black;
+                }
             }
             .c-item{
                 display: flex;
@@ -64,10 +70,10 @@
                 }
             }
             @include md{
-                padding: 0;
+                padding: 0px;
                 height: 60px;
                 max-width: 1200px;
-                margin: 0 auto;
+                margin: 0 20px;
                 flex-direction: row;
                 justify-content: space-between;
                 text-align: left;

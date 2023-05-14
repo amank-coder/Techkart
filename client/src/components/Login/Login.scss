@@ -4,14 +4,19 @@
     justify-content: center;
   
     form {
+      margin-top: 100px;
+      margin-bottom: 60px;
       width: 360px;
-      padding: 100px 0px;
+      padding: 40px 50px;
       display: flex;
       flex-direction: column;
       gap: 20px;
+      border: 1px solid black;
+      background:#fff;
+      box-shadow: 4px 4px gray;
   
       h1 {
-        color: gray;
+        color: black;
         margin-bottom: 20px;
       }
   

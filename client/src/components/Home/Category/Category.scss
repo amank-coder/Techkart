@@ -4,10 +4,20 @@
     margin: 25px 0;
     @include md{
         margin: 50px 0;
+        margin-left: 35px;
     }
     h1{
-        padding-bottom: 15px;
+        padding-bottom: 45px;
+        &:after{
+            content: "";
+            display: block;
+            width: 17%;
+            margin-top: 20px;
+            height: 2px;
+            background-color: rgb(133, 50, 188);
+        }
     }
+    
     .categories{
         display: flex;
         flex-flow: wrap;
@@ -15,6 +25,7 @@
         margin-top: 15px;
         .category{
             background-color: white;
+            border-radius: 10px;
             padding:15px;
             width: calc(50% - 5px);
             cursor: pointer;
@@ -29,12 +40,15 @@
                 
             }
             @include md{
-                width: calc(25% - 15px);
+                width: calc(20% - 15px);
             }
             img{
                 width: 100%;
+                height: fit-content;
                 display: block;
                 transition: all ease 0.3s;
+                background: #000;
+                border-radius: 10px;
             }
             &:hover{
                 img{

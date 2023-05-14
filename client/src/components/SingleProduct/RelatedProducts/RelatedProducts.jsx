@@ -1,5 +1,4 @@
 import Products from "../../Products/Products";
-import useFetch from "../../../hooks/useFetch";
 
 const RelatedProducts = ({cat}) => {
     

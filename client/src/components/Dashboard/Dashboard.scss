@@ -1,0 +1,26 @@
+.maindiv{
+    margin-top: 100px;
+    margin-bottom: 50px;
+    padding: 0 25px;
+    display: flex;
+    gap: 200px;
+    .left{
+        display: flex;
+        flex-direction: column;
+        h2{
+            margin-bottom: 15px;
+        }
+        span{
+            border: 1px solid black;
+            padding: 10px;
+        }
+        .menu{
+            text-decoration: none;
+        }
+    }
+    .right{
+        .bar{
+            width: 600px;
+        }
+    }
+}

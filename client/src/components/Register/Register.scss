@@ -5,12 +5,17 @@
   
     form {
       width: 800px;
-      padding: 80px 0px;
+      padding: 20px 20px;
       display: flex;
       gap: 100px;
+      border: 1px solid black;
+      margin-top: 120px;
+      margin-bottom: 60px;
+      background: #fff;
+      box-shadow: 4px 4px gray;
   
       h1 {
-        color: gray;
+        color: black;
         margin-bottom: 20px;
       }
   

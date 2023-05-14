@@ -6,7 +6,10 @@
     background-color: #212121;
     color: white;
     border-bottom: 1px solid rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
     z-index: 99;
+    opacity: 0.9;
     @include md{
         padding: 0 40px;
     }
@@ -17,44 +20,123 @@
         height:50px;
         max-width: 1100px;
         margin: 0 auto;
+        z-index: 200;
         @include md{
             height:80px
         }
         .left{
+            
             list-style-type: none;
-            display: none;
-            gap: 25px;
+            display: flex;
+            align-items: center;
+           .menu{
+            display: flex;
+                gap: 25px;
+                align-items: center;
+                cursor: pointer;
+                .hamburger-icon{
+                    display: block;
+                    &.active {
+                        transform: rotate(90deg);
+                      }
+
+                    @include md{
+                        display: none;
+                    }
+                }
+            .lscreen-links{
+                
+                display: none;
+                @include md{
+                    display: flex;
+                    gap: 25px;
+                }
+                &.active {
+                    display: flex;
+                    flex-direction: column;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    width: 100%;
+                    padding: 10px;
+                    background-color: #212121;
+                    border-radius: 5px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                    z-index: 999;
+                span{
+                    font-size: 14px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    cursor: pointer;
+                }
+            }
+                
+            }
+            }
+            
             @include md{
                 display:flex
             }
-            li{
-                font-size: 14px;
-                font-weight: 600;
-                text-transform: uppercase;
-                cursor: pointer;
-            }
-        }
+           
+            
+    }
+
         .center{
             font-size: 22px;
             font-weight: 600px;
+            margin-left: 50px;
             cursor: pointer;
             @include md{
                 font-size: 34px;
-                position: absolute;
-                left: 50%;
                 transform: translateX(-50%);
             }
         }
         .right{
             display: flex;
             align-items: center;
-            gap: 20px;
-            .heart{
-                &:hover{
-                    background-color: rgba(255, 0, 0, 0.5);
-                    border-radius: 33px;
+            gap: 5px;
+            .dropdown{
+                .admin{
+                    position: relative;
+                    left: 10px;
+                    color: gray;
+                    font-size: 12px;
+                    
+                }
+                .user{
+                    cursor: pointer;
+                    padding-top: 20px;
+                    font-size: 15px;
+                    @include md{
+                        font-size: 30px;
+                    }
+                }
+                .ad{
+                    cursor: pointer;
+                    font-size: 15px;
+                    @include md{
+                        font-size: 30px;
+                    }
+                }
+                .dropdown-menu{
+                    position: absolute;
+                    background: white;
+                    opacity: 0.9;
+                    padding: 10px;
+                    color: black;
+                    border-radius: 5px;
+                    ul{
+                        list-style-type: none;
+                        li{
+                            z-index: 200;
+                            font-weight: bold;
+                            cursor: pointer;
+                        }
+                    }
+                    z-index: 101;
                 }
             }
+            
             @include md{
                 gap:25px;
             }
@@ -73,17 +155,7 @@
             .cart-item{
                 position: relative;
                 .qty{
-                    
-                    min-width: 20px;
-                    text-align: center;
-                    background-color: #8e2de2;
-                    height: 5px;
-                    width: 5px;
-                    top: -5px;
-                    right: -12px;
-                    font-size: 12px;
-                    line-height: 1;
-                    border-radius: 10px;
+                    color: white;
                 }
             }
         }
@@ -92,7 +164,7 @@
         position: sticky;
         top:0;
         transform: translateY(-80px);
-        animation: stickyHeader 0.3s ease forwards;
+        animation: stickyHeader 0.6s ease-in forwards;
     }
 }
 

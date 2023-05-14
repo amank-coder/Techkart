@@ -1,4 +1,4 @@
-import { createContext, useEffect } from "react";
+import { createContext, useEffect, useRef } from "react";
 import { useState } from "react";
 // import { useLocation } from "react-router-dom";
 
@@ -10,6 +10,8 @@ const AppContext = ({children}) => {
     const [cartItems, setCartItems] = useState([])
     const [cartCount, setCartCount] = useState()
     const [cartSubTotal, setCartSubTotal] = useState(0)
+    const [qty, setQty] = useState(1)
+
 
     // const location = useLocation()
 
@@ -28,6 +30,16 @@ const AppContext = ({children}) => {
         })
         setCartSubTotal(subTotal)
     },[cartItems])
+
+
+    const scrollToRef = useRef(null);
+    const handleClick = () => {
+        const scrollToPosition = scrollToRef.current.offsetTop;
+        window.scrollTo({
+          top: scrollToPosition,
+          behavior: 'smooth'
+        });
+      };
 
     const handleAddToCart = (product, quantity)=>{
         let items=[...cartItems]
@@ -79,6 +91,10 @@ const AppContext = ({children}) => {
             handleAddToCart,
             handleRemoveFromCart,
             handleCartProductQuantity,
+            qty,
+            setQty,
+            scrollToRef,
+            handleClick
         }}
         >{children} </Context.Provider>
     )

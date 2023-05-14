@@ -15,6 +15,7 @@
             display: flex;
             flex-direction: column;
             margin-bottom: 50px;
+    
             @include md{
                 flex-direction: row;
             }
@@ -23,6 +24,7 @@
                 background-color: rgba(0,0,0,0.05);
                 flex-shrink: 0;
                 border: 1px solid black;
+                margin-top: 40px;
                 @include md{
                     height: 400px;
                     width: 400px;
@@ -36,6 +38,7 @@
                 display: flex;
                 flex-direction: column;
                 padding-top: 20px;
+                margin-top: 40px;
                 @include md{
                     padding: 0 35px;
                 }
@@ -97,6 +100,7 @@
                         outline: 0;
                         border: 0;
                         font-size: 16px;
+                        text-decoration: none;
                         height: 50px;
                         width: 180px;
                         display: flex;

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./Register.scss";
 import { useNavigate } from "react-router-dom";
 import newRequest from "../../util/newRequest";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Register() {
   
@@ -29,6 +31,8 @@ function Register() {
     }
   }
 
+  const notify = () => toast("New Product added");
+
   return (
     <div className="register">
       <form onSubmit={handleSubmit}>
@@ -38,14 +42,21 @@ function Register() {
           <input
             name="username"
             type="text"
-            placeholder="user"
+            placeholder="username"
+            onChange={handleChange}
+          />
+          <label htmlFor="">Mobile no.</label>
+          <input
+            name="phone"
+            type="phone"
+            placeholder="+91 0123 456789"
             onChange={handleChange}
           />
           <label htmlFor="">Email</label>
           <input
             name="email"
             type="email"
-            placeholder="email"
+            placeholder="Email"
             onChange={handleChange}
           />
           <label htmlFor="">Password</label>

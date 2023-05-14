@@ -1,9 +1,17 @@
 @import "../../css-config/mixins.scss";
 
 .heading{
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-bottom: 10px;
+    padding-top: 25px;
+    padding-left: 35px;
+    padding-bottom: 5px;
+    &:after{
+        content: "";
+        display: block;
+        width: 25%;
+        margin-top: 20px;
+        height: 2px;
+        background-color: rgb(133, 50, 188);
+    }
 }
 
 .products-container{
@@ -39,7 +47,7 @@
         display: flex;
         flex-flow: wrap;
         flex-direction: column;
-        width: 220px;
+        width: 215px;
         gap: 10px;
         margin-left: 40px;
         margin-right: 20px;
@@ -47,7 +55,10 @@
         border-radius: 10px;
         padding: 10px;
         border: 1px solid black;
+        box-shadow: 4px 4px rgb(149, 141, 141);
         cursor: pointer;
+        background:#fff;
+
         .text{
             background-color: white;
             text-align: center;

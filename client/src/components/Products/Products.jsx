@@ -5,10 +5,12 @@ import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import newRequest from "../../util/newRequest";
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { Context } from "../../util/context";
 
 const Products = ({search, title}) => {
     const navigate = useNavigate()
+    const {scrollToRef}= useContext(Context)
     useEffect(() => {
         window.scrollTo(0, 0); 
       }, []);
@@ -20,8 +22,7 @@ const Products = ({search, title}) => {
           return res.data
         }),
       })
-      console.log(data)
-      console.log(search)
+
     return (
        <>
        <h1 className="heading">{title ? 'Related Products' : 'Popular Products'}</h1>

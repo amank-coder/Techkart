@@ -10,18 +10,19 @@ import {
     FaFacebook
 } from "react-icons/fa"
 import newRequest from "../../util/newRequest";
-
+import { Link } from "react-router-dom";
 
 // import useFetch from "../../hooks/useFetch";
 // import { useParams } from "react-router-dom";
 import { Context } from "../../util/context";
-
+import { useCart } from "../../util/cartContext";
 import "./SingleProduct.scss";
 import RelatedProducts from "./RelatedProducts/RelatedProducts";
 import { useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { useQuery } from "react-query";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // const SingleProduct = () => {
 //     const [quantity,setQuantity]= useState(1)
 
@@ -95,9 +96,11 @@ import { useQuery } from "react-query";
 
 const SingleProduct = () => {
     
-    const [qty, setQty] = useState(1)
     const {id} = useParams()
     const {handleAddToCart} = useContext(Context)
+    const [cart, setCart] = useCart()
+
+    const {qty, setQty} = useContext(Context)
 
     const increment = ()=>{
         setQty((prev)=>prev+1)
@@ -109,6 +112,9 @@ const SingleProduct = () => {
         })
     }
 
+    const notify = () => toast("Item added to Cart");
+
+
     const { isLoading, error, data } = useQuery({
         queryKey:['product'],
         queryFn: () =>
@@ -116,8 +122,7 @@ const SingleProduct = () => {
           return res.data
         }),
       })
-      console.log(id)
-      console.log(data)
+
     
     return(
         <div className="single-product-main-content">
@@ -135,12 +140,15 @@ const SingleProduct = () => {
                                  <span onClick={increment}>+</span>
                              </div>
                              <button className="add-to-cart-button"  onClick={()=>{
-                                 handleAddToCart(data,qty)
-                                 setQty(1)
+                                 setCart([...cart, data])
+                                 localStorage.setItem("cart", JSON.stringify([...cart, data]))
+                                 notify()
+                                //  setQty(1)
                              }}>
                                  <FaCartPlus size={20} />
                                  ADD TO CART
                              </button>
+                             <ToastContainer hideProgressBar={true} autoClose={1500} position="top-center" />
                        </div>
                        <div className="divider"></div>
                          <div className="info-item">

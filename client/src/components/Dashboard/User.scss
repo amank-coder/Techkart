@@ -1,0 +1,47 @@
+.maindiv{
+    margin-top: 100px;
+    margin-bottom: 50px;
+    padding: 0 25px;
+    display: flex;
+    gap: 200px;
+    .left{
+        display: flex;
+        flex-direction: column;
+        h2{
+            margin-bottom: 15px;
+        }
+        span{
+            border: 1px solid black;
+            padding: 10px;
+        }
+        .menu{
+            text-decoration: none;
+        }
+    }
+    .right{
+        .user{
+            display: flex;
+            gap: 150px;
+            background: white;
+            border: 1px solid black;
+            .name{
+                display: flex;
+                flex-direction: column;
+                h3{
+                    padding: 20px;
+                    &:after{
+                        content: "";
+                        display: block;
+                        width: 40px;
+                        margin-top: 15px;
+                        height: 2px;
+                        background-color: rgb(133, 50, 188);
+                    }
+                }
+                span{
+                    padding: 20px;
+                }
+            }
+        }
+    }
+}
